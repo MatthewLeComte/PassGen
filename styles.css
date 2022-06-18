@@ -1,0 +1,82 @@
+body {
+    background-color: #f06d06;
+    color: black;
+    margin: 0;
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.container {
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+    background-color: white;
+    padding: 5rem;
+    border-radius: 0rem;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 1rem;
+    column-gap: 3rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+.character-amount-container {
+    display: flex;
+    align-items: center;
+}
+
+.number-box {
+    width: 2rem;
+}
+
+.password-display {
+    background-color: white;
+    color: black;
+    padding: 1.1rem;
+    border: 1px solid black;
+    border-radius: .5rem;
+    height: 2.7 rem;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+    cursor: pointer;
+}
+
+.button {
+    margin-top: .5rem;
+    grid-column: span 2;
+    background-color: transparent;
+    border: 2px soild white;
+    border-radius: .0rem;
+    color: black;
+    padding: .6rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #d6cefd33;
+}
