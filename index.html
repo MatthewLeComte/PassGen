@@ -5,9 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
+  
+<!--
+------------------------------------------------------------------------------------
+░██████╗████████╗██╗░░░██╗██╗░░░░░███████╗░██████╗░░░░██╗░█████╗░░██████╗░██████╗░░░
+██╔════╝╚══██╔══╝╚██╗░██╔╝██║░░░░░██╔════╝██╔════╝░░░██╔╝██╔══██╗██╔════╝██╔════╝░░░
+╚█████╗░░░░██║░░░░╚████╔╝░██║░░░░░█████╗░░╚█████╗░░░██╔╝░██║░░╚═╝╚█████╗░╚█████╗░░░░
+░╚═══██╗░░░██║░░░░░╚██╔╝░░██║░░░░░██╔══╝░░░╚═══██╗░██╔╝░░██║░░██╗░╚═══██╗░╚═══██╗░░░
+██████╔╝░░░██║░░░░░░██║░░░███████╗███████╗██████╔╝██╔╝░░░╚█████╔╝██████╔╝██████╔╝██╗
+╚═════╝░░░░╚═╝░░░░░░╚═╝░░░╚══════╝╚══════╝╚═════╝░╚═╝░░░░░╚════╝░╚═════╝░╚═════╝░╚═╝
+-->
+  <style type="text/css">
+    body {
+      background-color: #f06d06;
+      color: black;
+      margin: 0;
+      min-height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 1.6rem;
+      margin-bottom: 1.6rem;
+      background-color: white;
+      padding: 5rem;
+      border-radius: 0rem;
+      border: 2px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: auto auto;
+      row-gap: 1rem;
+      column-gap: 3rem;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title {
+      margin: 0;
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .character-amount-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .number-box {
+      width: 2rem;
+    }
+
+    .password-display {
+      background-color: white;
+      color: black;
+      padding: 1.1rem;
+      border: 1px solid black;
+      border-radius: .5rem;
+      height: 2.7 rem;
+      width: 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      word-break: break-all;
+      cursor: pointer;
+    }
+
+    .button {
+      margin-top: .5rem;
+      grid-column: span 2;
+      background-color: transparent;
+      border: 2px soild white;
+      border-radius: .0rem;
+      color: black;
+      padding: .6rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #d6cefd33;
+    }
+  </style>
+
+<!--
+---------------------------------------
+██╗░░██╗████████╗███╗░░░███╗██╗░░░░░░░░
+██║░░██║╚══██╔══╝████╗░████║██║░░░░░░░░
+███████║░░░██║░░░██╔████╔██║██║░░░░░░░░
+██╔══██║░░░██║░░░██║╚██╔╝██║██║░░░░░░░░
+██║░░██║░░░██║░░░██║░╚═╝░██║███████╗██╗
+╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░░░░╚═╝╚══════╝╚═╝
+--> 
+  </head>
 <body>
     <div class="container">
         <h1 class="title">Your Results:</h1>
@@ -18,8 +120,8 @@
 
             <label for="characterAmountNumber">Number of characters:</label>
             <div class="character-amount-container">
-                <input type="range" min="1" max="95" value="95" id="characterAmountRange">
-                <input class="number-box" type="number" min="1" max="95" value="95" id="characterAmountNumber"> 
+                <input type="range" min="1" max="99" value="95" id="characterAmountRange">
+                <input class="number-box" type="number" min="1" max="99" value="95" id="characterAmountNumber"> 
             </div>
 
 
@@ -39,5 +141,97 @@
             <button class="button" type="submit">Generate Password</button>
         </form>
     </div>
-</body>
+  
+<!--
+----------------------------------------------
+
+░██████╗░█████╗░██████╗░██╗██████╗░████████╗░░░
+██╔════╝██╔══██╗██╔══██╗██║██╔══██╗╚══██╔══╝░░░
+╚█████╗░██║░░╚═╝██████╔╝██║██████╔╝░░░██║░░░░░░
+░╚═══██╗██║░░██╗██╔══██╗██║██╔═══╝░░░░██║░░░░░░
+██████╔╝╚█████╔╝██║░░██║██║██║░░░░░░░░██║░░░██╗
+╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░░░░░░░╚═╝░░░╚═╝
+--> 
+  <script>
+    const characterAmountRange = document.getElementById('characterAmountRange')
+const characterAmountNumber = document.getElementById('characterAmountNumber')
+const includeUppercaseElement = document.getElementById('includeUppercase')
+const includeNumbersElement = document.getElementById('includeNumbers')
+const includeSymbolsElement = document.getElementById('includeSymbols')
+const doubleSymbolsElement = document.getElementById('doubleSymbols')
+const form = document.getElementById('passwordGeneratorForm')
+const passwordDisplay = document.getElementById('passwordDisplay')
+
+const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
+const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
+const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
+const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
+    arrayFromLowToHigh(58, 64)                        
+).concat(
+    arrayFromLowToHigh(91, 96)
+).concat(
+    arrayFromLowToHigh(123, 126)
+)
+
+// Extra symbols option.
+const DOUBLE_SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
+    arrayFromLowToHigh(58, 64)                        
+).concat(
+    arrayFromLowToHigh(91, 96)
+).concat(
+    arrayFromLowToHigh(123, 126)
+)
+
+
+
+
+characterAmountRange.addEventListener('input', syncCharacterAmount)
+characterAmountNumber.addEventListener('input', syncCharacterAmount)
+
+    
+  
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    const characterAmount = characterAmountNumber.value
+    const includeUppercase = includeUppercaseElement.checked
+    const includeNumbers = includeNumbersElement.checked
+    const includeSymbols = includeSymbolsElement.checked
+    const doubleSymbols = doubleSymbolsElement.checked
+    
+    const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols, doubleSymbols)
+    passwordDisplay.innerText = password
+})
+
+function generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols, doubleSymbols) {
+    let charCodes = LOWERCASE_CHAR_CODES
+    if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
+    if (includeNumbers) charCodes = charCodes.concat(NUMBER_CHAR_CODES)
+    if (includeSymbols) charCodes = charCodes.concat(SYMBOL_CHAR_CODES)
+    if (doubleSymbols) charCodes = charCodes.concat(DOUBLE_SYMBOL_CHAR_CODES)
+    
+    const passwordCharacters = []
+    for (let i = 0; i < characterAmount; i++) {
+        const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
+        passwordCharacters.push(String.fromCharCode(characterCode))
+    }
+    return passwordCharacters.join('')
+}
+
+function arrayFromLowToHigh(low, high) {
+    const array = []
+    for (let i = low; i <= high; i++) {
+        array.push(i)
+    }
+    return array
+}
+
+function syncCharacterAmount(e) {
+    const value = e.target.value
+    characterAmountNumber.value = value
+    characterAmountRange.value = value
+}      
+    </script>  
+  
+  </body>
+  
 </html>
