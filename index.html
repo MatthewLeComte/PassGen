@@ -77,7 +77,21 @@
       transform-origin: left top;
       margin: 3px;
     }
-
+    
+    .footer {
+      background-color: white;
+      padding: 0.5rem;
+      border-radius: 0rem;
+      outline: 2px solid black;
+      position: absolute;
+      left: -0.0%;
+      justify-content: center;
+      bottom: -4.2rem;
+      font-weight: bold;
+      max-width:100%;  
+    }
+    /*------------------------------------------------------------------------------*/
+    
     .password-display {
       background-color: white;
       color: black;
@@ -103,7 +117,39 @@
       transition: all 0.2s;
       transition-delay: 200ms;
     }
-        
+    
+    @media (hover: hover){
+     .password-display:hover {
+      background-color: #d6cefd40;
+      }
+    }
+    
+    @media (hover: hover){
+    .password-display:hover + .copyButton {
+      filter: invert(23%) sepia(82%) saturate(2645%) hue-rotate(202deg) brightness(85%) contrast(102%);
+      }
+    }
+
+    @media (hover: none){
+    .password-display:hover { 
+      color: inherit; 
+      }
+    }
+    
+    .password-display:active {
+      color: #04AA6D;
+      -ms-transition-duration: 0.2s;
+      -ms-transform: scale(0.96);
+      -webkit-transition-duration: 0.2s;
+      -webkit-transform: scale(0.96);
+      -moz-transition-duration: 0.2s;
+      -moz-transform: scale(0.96);
+      -o-transition-duration: 0.2s;
+      -o-transform: scale(0.96);
+      transition: none;  
+    }  
+    /*----------------------------------------------------------------------------------------------------*/
+
     .copyButton {
       filter: invert(34%) sepia(62%) saturate(5109%) hue-rotate(203deg) brightness(102%) contrast(108%);
       isolation: isolate;
@@ -121,19 +167,6 @@
       transition-delay: 200ms;
     }
     
-    .refreshButton {
-      filter: invert(34%) sepia(62%) saturate(5109%) hue-rotate(203deg) brightness(102%) contrast(108%);
-      cursor: pointer;
-      left: 85%;
-      top: 12%;
-      position: absolute;
-      height: 1.6rem;
-      width: 1.6rem;
-      margin-top: 0rem;
-      margin-left: 0rem;
-      border-radius: 0.4rem;
-    }
-    
     @media (hover: hover){
     .copyButton:hover {
       filter: invert(23%) sepia(82%) saturate(2645%) hue-rotate(202deg) brightness(85%) contrast(102%);
@@ -146,26 +179,33 @@
       }
     }
     
-    .password-display:active + .copyButton {
-      filter: invert(40%) sepia(94%) saturate(801%) hue-rotate(121deg) brightness(96%) contrast(97%);
-      transition: none;
-    }
-    
-    @media (hover: hover){
-     .password-display:hover {
-      background-color: #d6cefd40;
-      }
-    }
-
-    @media (hover: none){
-    .password-display:hover { 
-      color: inherit; 
-      }
-    }
-    
     .copyButton:active {
       filter: invert(40%) sepia(94%) saturate(801%) hue-rotate(121deg) brightness(96%) contrast(97%);
+      -ms-transition-duration: 0.2s;
+      -ms-transform: scale(0.90);
+      -webkit-transition-duration: 0.2s;
+      -webkit-transform: scale(0.90);
+      -moz-transition-duration: 0.2s;
+      -moz-transform: scale(0.90);
+      -o-transition-duration: 0.2s;
+      -o-transform: scale(0.90);
       transition: none;
+    }
+    /*-----------------------------------------------------------------------------------------------------*/
+    
+    .refreshButton {
+      filter: invert(34%) sepia(62%) saturate(5109%) hue-rotate(203deg) brightness(102%) contrast(108%);
+      cursor: pointer;
+      left: 85%;
+      top: 12%;
+      position: absolute;
+      height: 1.6rem;
+      width: 1.6rem;
+      margin-top: 0rem;
+      margin-left: 0rem;
+      border-radius: 0.4rem;
+      transition: all 0.2s;
+      transition-delay: 200ms;
     }
     
     @media (hover: hover){
@@ -173,7 +213,7 @@
       filter: invert(23%) sepia(82%) saturate(2645%) hue-rotate(202deg) brightness(85%) contrast(102%); 
       }
     }
-  
+    
     @media (hover: none){
     .refreshButton:hover { 
       color: inherit; 
@@ -181,10 +221,19 @@
     }
     
     .refreshButton:active {
-      filter: invert(92%) sepia(100%) saturate(3727%) hue-rotate(354deg) brightness(109%) contrast(104%);
+      filter: invert(100%) sepia(76%) saturate(6815%) hue-rotate(0deg) brightness(107%) contrast(101%);
+      -ms-transition-duration: 0.2s;
+      -ms-transform: scale(0.90);
+      -webkit-transition-duration: 0.2s;
+      -webkit-transform: scale(0.90);
+      -moz-transition-duration: 0.2s;
+      -moz-transform: scale(0.90);
+      -o-transition-duration: 0.2s;
+      -o-transform: scale(0.90);
       transition: none;
     }
-
+    /*----------------------------------------------------------------------------------------------------*/
+        
     .button {
       margin-top: .5rem;
       grid-column: span 2;
@@ -198,6 +247,12 @@
       transition: all 0.2s;
       transition-delay: 150ms;
     }
+
+    @media (hover: hover) {
+    .button:hover {
+      background-color: #d6cefd33;    
+      }
+    }
     
     @media (hover: none) {
     .button:hover { 
@@ -205,31 +260,47 @@
       }
     }
     
-     @media (hover: hover) {
-    .button:hover {
-      background-color: #d6cefd33;    
-      }
-    }
-    
     .button:active {
       background-color: #04AA6D33;
+      -ms-transition-duration: 0.2s;
+      -ms-transform: scale(0.96);
+      -webkit-transition-duration: 0.2s;
+      -webkit-transform: scale(0.96);
+      -moz-transition-duration: 0.2s;
+      -moz-transform: scale(0.96);
+      -o-transition-duration: 0.2s;
+      -o-transform: scale(0.96);
       transition: none;
     }
-  
-    .footer {
-      background-color: white;
-      padding: 0.5rem;
-      border-radius: 0rem;
-      border: 2px solid black;
-      display: row;
-      position: absolute;
-      left: -0.5%;
-      justify-content: center;
-      align-items: top;
-      bottom: -4.2rem;
-      font-weight: bold;
-  
+    /*-----------------------------------------------------------------------------------------------------*/
+ 
+    /* Button Combo CSS */  
+   
+    .password-display:active + .copyButton {
+      filter: invert(40%) sepia(94%) saturate(801%) hue-rotate(121deg) brightness(96%) contrast(97%);
+      transition: none;
+      -ms-transition-duration: 0.2s;
+      -ms-transform: scale(0.90);
+      -webkit-transition-duration: 0.2s;
+      -webkit-transform: scale(0.90);
+      -moz-transition-duration: 0.2s;
+      -moz-transform: scale(0.90);
+      -o-transition-duration: 0.2s;
+      -o-transform: scale(0.90);
     }
+    /*
+    .copyButton:active .password-display {
+       color: #04AA6D;
+      -ms-transition-duration: 0.2s;
+      -ms-transform: scale(0.90);
+      -webkit-transition-duration: 0.2s;
+      -webkit-transform: scale(0.90);
+      -moz-transition-duration: 0.2s;
+      -moz-transform: scale(0.90);
+      -o-transition-duration: 0.2s;
+      -o-transform: scale(0.90);
+    }*/
+    
   </style>
 
 <!--
@@ -252,7 +323,8 @@
       <h3 class="password-display" id="passwordDisplay"></h3>
         
         
-        <svg class="copyButton" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-plus-fill" viewBox="0 0 16 16">
+
+      <svg class="copyButton" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-plus-fill" viewBox="0 0 16 16">
         <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
         <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm4.5 6V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5a.5.5 0 0 1 1 0Z"/>   
         </svg>
@@ -287,7 +359,7 @@
             <label for="includeSymbols">Include Symbols:</label>
             <input type="checkbox" checked="true" id="includeSymbols" onclick="onLoadGeneration()">
 
-            <button class="button" type="submit" on>Generate Password</button>
+            <button class="button" type="submit">Generate Password</button>
         </form>
                
       <span class="footer">
@@ -313,6 +385,8 @@ const includeNumbersElement = document.getElementById('includeNumbers')
 const includeSymbolsElement = document.getElementById('includeSymbols')
 const form = document.getElementById('passwordGeneratorForm')
 const passwordDisplay = document.getElementById('passwordDisplay')
+const copyButtonElement = document.getElementById('copyButton')
+const generateButtonElement = document.getElementById('button')
 
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
@@ -344,7 +418,7 @@ function onLoadGeneration() {
     const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols)
     passwordDisplay.innerText = password
 }
-    
+  
     // ...............................................................Pasted Code.
 
 function copyPassword(text) {
@@ -383,7 +457,9 @@ var copyText = document.querySelector(".password-display")
 
 copyText.addEventListener("click", function(event) {
   copyTextToClipboard(passwordDisplay.innerText);
-});
+});     
+   
+   
     
     // ...............................................................Pasted Code.
     
@@ -420,7 +496,22 @@ function arrayFromLowToHigh(low, high) {
     }
     return array
 }
-     
+    
+    
+   addThatEventListener("click", "button", e => {
+         console.log("hi")
+     // Need to figure out how to use this to activate the passwordDisplay.
+   })
+   
+   
+  function addThatEventListener(type, selector, callback) {
+     document.addEventListener(type, e => {
+       if (e.target.matches(selector)) callback(e)
+     })
+   }
+   
+   
+   
     </script>  
   
   </body>
