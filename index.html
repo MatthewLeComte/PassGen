@@ -41,7 +41,8 @@
       align-items: center;
       flex-direction: column;
       padding-top: 1rem;
-      padding-left: 1rem;
+      padding-left: .5rem;
+      padding-right: 1.5rem;
       padding-bottom: 2rem;
     }
 
@@ -52,6 +53,7 @@
       column-gap: 2rem;
       justify-content: center;
       align-items: center;
+      margin-left: 0.9rem;
     }
 
     label {
@@ -70,7 +72,7 @@
 
     .number-box {
       cursor: text;
-      width: 2.2rem;
+      width: 2.5rem;
       font-size: 16px;
       font-size: 100%;
       transform: scale(0.90);
@@ -88,7 +90,7 @@
       justify-content: center;
       bottom: -4.2rem;
       font-weight: bold;
-      max-width:100%;  
+      max-width: 100%;  
     }
     /*------------------------------------------------------------------------------*/
     
@@ -288,18 +290,6 @@
       -o-transition-duration: 0.2s;
       -o-transform: scale(0.90);
     }
-    /*
-    .copyButton:active .password-display {
-       color: #04AA6D;
-      -ms-transition-duration: 0.2s;
-      -ms-transform: scale(0.90);
-      -webkit-transition-duration: 0.2s;
-      -webkit-transform: scale(0.90);
-      -moz-transition-duration: 0.2s;
-      -moz-transform: scale(0.90);
-      -o-transition-duration: 0.2s;
-      -o-transform: scale(0.90);
-    }*/
     
   </style>
 
@@ -358,7 +348,7 @@
 
             <label for="includeSymbols">Include Symbols:</label>
             <input type="checkbox" checked="true" id="includeSymbols" onclick="onLoadGeneration()">
-
+             
             <button class="button" type="submit">Generate Password</button>
         </form>
                
@@ -407,8 +397,16 @@ function syncCharacterAmount(e) {
     const value = e.target.value
     characterAmountNumber.value = value
     characterAmountRange.value = value
+  
+    const characterAmount = characterAmountNumber.value
+    const includeUppercase = includeUppercaseElement.checked
+    const includeNumbers = includeNumbersElement.checked
+    const includeSymbols = includeSymbolsElement.checked
+
+    const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols)
+    passwordDisplay.innerText = password
 } 
- 
+    
 function onLoadGeneration() {
     const characterAmount = characterAmountNumber.value
     const includeUppercase = includeUppercaseElement.checked
@@ -418,7 +416,8 @@ function onLoadGeneration() {
     const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols)
     passwordDisplay.innerText = password
 }
-  
+ 
+    
     // ...............................................................Pasted Code.
 
 function copyPassword(text) {
@@ -495,22 +494,7 @@ function arrayFromLowToHigh(low, high) {
         array.push(i)
     }
     return array
-}
-    
-    
-   addThatEventListener("click", "button", e => {
-         console.log("hi")
-     // Need to figure out how to use this to activate the passwordDisplay.
-   })
-   
-   
-  function addThatEventListener(type, selector, callback) {
-     document.addEventListener(type, e => {
-       if (e.target.matches(selector)) callback(e)
-     })
-   }
-   
-   
+}   
    
     </script>  
   
