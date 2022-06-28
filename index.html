@@ -94,7 +94,7 @@
     }
     /*------------------------------------------------------------------------------*/
     
-    .password-display {
+    .passwordDisplay {
       background-color: white;
       color: black;
       margin-left: -2rem;
@@ -121,24 +121,24 @@
     }
     
     @media (hover: hover){
-     .password-display:hover {
+     .passwordDisplay:hover {
       background-color: #d6cefd40;
       }
     }
     
     @media (hover: hover){
-    .password-display:hover + .copyButton {
+    .passwordDisplay:hover + .copyButton {
       filter: invert(23%) sepia(82%) saturate(2645%) hue-rotate(202deg) brightness(85%) contrast(102%);
       }
     }
 
     @media (hover: none){
-    .password-display:hover { 
+    .passwordDisplay:hover { 
       color: inherit; 
       }
     }
     
-    .password-display:active {
+    .passwordDisplay:active {
       color: #04AA6D;
       -ms-transition-duration: 0.2s;
       -ms-transform: scale(0.96);
@@ -252,7 +252,7 @@
 
     @media (hover: hover) {
     .button:hover {
-      background-color: #d6cefd33;    
+      background-color: #0075ff33;    
       }
     }
     
@@ -263,7 +263,7 @@
     }
     
     .button:active {
-      background-color: #04AA6D33;
+      background-color: #04AA6D29;
       -ms-transition-duration: 0.2s;
       -ms-transform: scale(0.96);
       -webkit-transition-duration: 0.2s;
@@ -278,7 +278,7 @@
  
     /* Button Combo CSS */  
    
-    .password-display:active + .copyButton {
+    .passwordDisplay:active + .copyButton {
       filter: invert(40%) sepia(94%) saturate(801%) hue-rotate(121deg) brightness(96%) contrast(97%);
       transition: none;
       -ms-transition-duration: 0.2s;
@@ -310,11 +310,11 @@
       
       
       <div title="Copy Password." onclick="copyPassword()">
-      <h3 class="password-display" id="passwordDisplay"></h3>
+      <h3 class="passwordDisplay" id="passwordDisplay"></h3>
         
         
 
-      <svg class="copyButton" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-plus-fill" viewBox="0 0 16 16">
+      <svg class="copyButton" id="copyButton" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-plus-fill" viewBox="0 0 16 16">
         <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3Zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Z"/>
         <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm4.5 6V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5a.5.5 0 0 1 1 0Z"/>   
         </svg>
@@ -349,7 +349,7 @@
             <label for="includeSymbols">Include Symbols:</label>
             <input type="checkbox" checked="true" id="includeSymbols" onclick="onLoadGeneration()">
              
-            <button class="button" type="submit">Generate Password</button>
+            <button class="button" type="submit" id="button">Generate Password</button>
         </form>
                
       <span class="footer">
@@ -452,10 +452,11 @@ function copyTextToClipboard(text) {
   );
 }
 
-var copyText = document.querySelector(".password-display")
+var copyText = document.querySelector(".passwordDisplay")
 
 copyText.addEventListener("click", function(event) {
   copyTextToClipboard(passwordDisplay.innerText);
+  
 });     
    
    
@@ -495,7 +496,57 @@ function arrayFromLowToHigh(low, high) {
     }
     return array
 }   
-   
+    
+    
+    /*--------------------------------------------------------*/
+    
+                 /* Zoom In  
+document.getElementById("button").onmousedown = function() 
+{document.getElementById("passwordDisplay").style.color = "#0075ff";
+ document.getElementById("passwordDisplay").style.transitionDuration = "0.2s";
+ document.getElementById("passwordDisplay").style.webkitTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.MozTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.msTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.OTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.transform = 'scale(.97)';};
+
+                 /* Zoom Out            
+document.getElementById("button").onmouseup = function()
+{document.getElementById("passwordDisplay").style.color = "black";
+ document.getElementById("passwordDisplay").style.webkitTransform = 'scale(1)';  document.getElementById("passwordDisplay").style.MozTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.msTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.OTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.transform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.transition = "all 0.2s";
+ document.getElementById("passwordDisplay").style.transitionDelay = "200ms";
+};
+    
+    
+    
+       /* Zoom In 
+document.getElementById("copyButton").onclick = function()
+{document.getElementById("passwordDisplay").style.backgroundColor = "#d6cefd40";
+ document.getElementById("passwordDisplay").style.webkitTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.MozTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.msTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.OTransform = 'scale(.97)';
+ document.getElementById("passwordDisplay").style.transform = 'scale(.97)';
+}
+
+    /* Zoom Out 
+document.getElementById("copyButton").onmousemove = function()
+{document.getElementById("passwordDisplay").style.backgroundColor = "white";
+ document.getElementById("passwordDisplay").style.webkitTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.MozTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.msTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.OTransform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.transform = 'scale(1)';
+ document.getElementById("passwordDisplay").style.transition = "all 0.2s";
+ document.getElementById("passwordDisplay").style.transitionDelay = "200ms";
+};  
+    
+    Still broken. */
+    
     </script>  
   
   </body>
