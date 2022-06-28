@@ -236,7 +236,7 @@
     }
     /*----------------------------------------------------------------------------------------------------*/
         
-    .button {
+    .generateButton {
       margin-top: .5rem;
       grid-column: span 2;
       background-color: transparent;
@@ -251,18 +251,18 @@
     }
 
     @media (hover: hover) {
-    .button:hover {
+    .generateButton:hover {
       background-color: #0075ff33;    
       }
     }
     
     @media (hover: none) {
-    .button:hover { 
+    .generateButton:hover { 
       color: inherit; 
       }
     }
     
-    .button:active {
+    .generateButton:active {
       background-color: #04AA6D29;
       -ms-transition-duration: 0.2s;
       -ms-transform: scale(0.96);
@@ -349,7 +349,7 @@
             <label for="includeSymbols">Include Symbols:</label>
             <input type="checkbox" checked="true" id="includeSymbols" onclick="onLoadGeneration()">
              
-            <button class="button" type="submit" id="button">Generate Password</button>
+            <button class="generateButton" type="submit" id="generateButton">Generate Password</button>
         </form>
                
       <span class="footer">
@@ -368,7 +368,7 @@
 ╚═════╝░░╚════╝░╚═╝░░╚═╝╚═╝╚═╝░░░░░░░░╚═╝░░░╚═╝
 --> 
   <script>
-    const characterAmountRange = document.getElementById('characterAmountRange')
+  const characterAmountRange = document.getElementById('characterAmountRange')
 const characterAmountNumber = document.getElementById('characterAmountNumber')
 const includeUppercaseElement = document.getElementById('includeUppercase')
 const includeNumbersElement = document.getElementById('includeNumbers')
@@ -376,7 +376,7 @@ const includeSymbolsElement = document.getElementById('includeSymbols')
 const form = document.getElementById('passwordGeneratorForm')
 const passwordDisplay = document.getElementById('passwordDisplay')
 const copyButtonElement = document.getElementById('copyButton')
-const generateButtonElement = document.getElementById('button')
+const generateButtonElement = document.getElementById('generateButton')
 
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(48, 57)
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
@@ -393,6 +393,7 @@ const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
 characterAmountRange.addEventListener('input', syncCharacterAmount)
 characterAmountNumber.addEventListener('input', syncCharacterAmount)
 
+    
 function syncCharacterAmount(e) {
     const value = e.target.value
     characterAmountNumber.value = value
@@ -407,6 +408,7 @@ function syncCharacterAmount(e) {
     passwordDisplay.innerText = password
 } 
     
+    
 function onLoadGeneration() {
     const characterAmount = characterAmountNumber.value
     const includeUppercase = includeUppercaseElement.checked
@@ -416,10 +418,8 @@ function onLoadGeneration() {
     const password = generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols)
     passwordDisplay.innerText = password
 }
- 
-    
-    // ...............................................................Pasted Code.
 
+    
 function copyPassword(text) {
   var textArea = document.createElement("textarea");
   textArea.value = text;
@@ -432,7 +432,7 @@ function copyPassword(text) {
     var msg = successful ? "successful" : "unsuccessful";
     console.log("Fallback: Copying text command was " + msg);
   } catch (err) {
-    console.error("Fallback: Oops, unable to copy", err);
+    console.error("Fallback: Unable to copy", err);
   }
 
   document.body.removeChild(textArea);
@@ -458,10 +458,6 @@ copyText.addEventListener("click", function(event) {
   copyTextToClipboard(passwordDisplay.innerText);
   
 });     
-   
-   
-    
-    // ...............................................................Pasted Code.
     
     
 form.addEventListener('submit', e => {
@@ -475,6 +471,7 @@ form.addEventListener('submit', e => {
     passwordDisplay.innerText = password
 })
 
+    
 function generatePassword(characterAmount, includeUppercase, includeNumbers, includeSymbols) {
     let charCodes = LOWERCASE_CHAR_CODES
     if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_CHAR_CODES)
@@ -489,6 +486,7 @@ function generatePassword(characterAmount, includeUppercase, includeNumbers, inc
     return passwordCharacters.join('')
 }
 
+    
 function arrayFromLowToHigh(low, high) {
     const array = []
     for (let i = low; i <= high; i++) {
@@ -496,56 +494,6 @@ function arrayFromLowToHigh(low, high) {
     }
     return array
 }   
-    
-    
-    /*--------------------------------------------------------*/
-    
-                 /* Zoom In  
-document.getElementById("button").onmousedown = function() 
-{document.getElementById("passwordDisplay").style.color = "#0075ff";
- document.getElementById("passwordDisplay").style.transitionDuration = "0.2s";
- document.getElementById("passwordDisplay").style.webkitTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.MozTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.msTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.OTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.transform = 'scale(.97)';};
-
-                 /* Zoom Out            
-document.getElementById("button").onmouseup = function()
-{document.getElementById("passwordDisplay").style.color = "black";
- document.getElementById("passwordDisplay").style.webkitTransform = 'scale(1)';  document.getElementById("passwordDisplay").style.MozTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.msTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.OTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.transform = 'scale(1)';
- document.getElementById("passwordDisplay").style.transition = "all 0.2s";
- document.getElementById("passwordDisplay").style.transitionDelay = "200ms";
-};
-    
-    
-    
-       /* Zoom In 
-document.getElementById("copyButton").onclick = function()
-{document.getElementById("passwordDisplay").style.backgroundColor = "#d6cefd40";
- document.getElementById("passwordDisplay").style.webkitTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.MozTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.msTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.OTransform = 'scale(.97)';
- document.getElementById("passwordDisplay").style.transform = 'scale(.97)';
-}
-
-    /* Zoom Out 
-document.getElementById("copyButton").onmousemove = function()
-{document.getElementById("passwordDisplay").style.backgroundColor = "white";
- document.getElementById("passwordDisplay").style.webkitTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.MozTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.msTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.OTransform = 'scale(1)';
- document.getElementById("passwordDisplay").style.transform = 'scale(1)';
- document.getElementById("passwordDisplay").style.transition = "all 0.2s";
- document.getElementById("passwordDisplay").style.transitionDelay = "200ms";
-};  
-    
-    Still broken. */
     
     </script>  
   
